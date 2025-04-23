@@ -1,0 +1,175 @@
+/* Container */
+.weather-container {
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(to top, #1c1c1c, #2c3e50);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  /* Card */
+  .weather-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    color: white;
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+    text-align: center;
+    z-index: 2;
+  }
+  
+  /* Text blocks */
+  .header .temperature {
+    font-size: 2.5rem;
+  }
+  .header .location,
+  .header .time {
+    font-size: 1rem;
+    opacity: 0.8;
+  }
+  .sun-info,
+  .stats {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    font-size: 0.9rem;
+  }
+  .rain {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 8px;
+    border-radius: 10px;
+    margin: 10px 0;
+    font-size: 1rem;
+  }
+  .forecast {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding-bottom: 5px;
+  }
+  .forecast-day {
+    flex: 0 0 auto;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    padding: 10px;
+    width: 70px;
+    font-size: 0.8rem;
+  }
+  
+  /* Animated Sun */
+  .sun {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    margin-left: -40px;
+    background: radial-gradient(circle, #f9d71c, #f39c12);
+    border-radius: 50%;
+    box-shadow: 0 0 60px 15px #f9d71c;
+    z-index: 1;
+    animation: pulse 3s infinite ease-in-out;
+  }
+  
+  /* Animated Clouds */
+  .cloud {
+    position: absolute;
+    top: 15%;
+    left: 40%;
+    width: 120px;
+    height: 60px;
+    background: #ccc;
+    border-radius: 50%;
+    box-shadow: 40px 0 #ccc, 80px 0 #ccc;
+    z-index: 1;
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  /* Animated Rain */
+  .rain-drop {
+    position: absolute;
+    top: -10%;
+    width: 2px;
+    height: 20px;
+    background: white;
+    opacity: 0.7;
+    animation: rainFall 0.5s linear infinite;
+    z-index: 1;
+  }
+  
+  /* Keyframes */
+  @keyframes rainFall {
+    0% {
+      top: -10%;
+      opacity: 0;
+    }
+    100% {
+      top: 100%;
+      opacity: 1;
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    .weather-card {
+      padding: 15px;
+    }
+  
+    .forecast-day {
+      width: 60px;
+      font-size: 0.7rem;
+    }
+  
+    .header .temperature {
+      font-size: 2rem;
+    }
+  
+    .sun {
+      width: 60px;
+      height: 60px;
+      margin-left: -30px;
+    }
+  
+    .cloud {
+      width: 90px;
+      height: 45px;
+      box-shadow: 30px 0 #ccc, 60px 0 #ccc;
+    }
+  
+    .rain-drop {
+      height: 16px;
+      width: 1.5px;
+    }
+  }
+  
